@@ -1,0 +1,363 @@
+﻿:root {
+    --naranja: #f15a29;
+    --gris-oscuro: #2b2b2b;
+    --gris-claro: #f4f4f4;
+    --gris-medio: #7a7a7a;
+    --blanco: #ffffff;
+    --sombra: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--gris-claro);
+    color: var(--gris-oscuro);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.contenedor {
+    width: min(1120px, calc(100% - 2rem));
+    margin: 0 auto;
+}
+
+.cabecera-sitio {
+    background: linear-gradient(to right, #C0392B, #D35400, #E67E22, #F39C12, #E67E22);
+    color: var(--blanco);
+    padding: 1.25rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.interior-cabecera,
+.rejilla-principal,
+.rejilla-contacto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.interior-cabecera {
+    flex-wrap: wrap;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-enlace {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-enlace img {
+    width: 54px;
+    height: 54px;
+    display: block;
+}
+
+.marca-texto h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.marca-enlace {
+    color: var(--blanco);
+    text-decoration: none;
+}
+
+.marca-enlace:hover {
+    color: #ffd8c2;
+    transition: color 0.2s ease;
+    transform: scale(1.1);
+}
+
+.marca-texto p {
+    color: var(--gris-claro);
+    margin: 0;
+
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    margin-left: 20px;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+nav li:hover {
+    transform: scale(1.05);
+    transition: transform 0.1s ease;
+}
+
+nav a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.principal {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--blanco) 0%, var(--gris-claro) 100%);
+}
+
+.rejilla-principal {
+    align-items: center;
+}
+
+.texto-principal {
+    max-width: 620px;
+}
+
+.texto-principal span {
+    display: inline-block;
+    color: var(--naranja);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.texto-principal h2 {
+    margin: 0 0 1rem;
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    line-height: 1.05;
+}
+
+.texto-principal p {
+    margin: 0 0 1.5rem;
+    color: var(--gris-medio);
+    max-width: 520px;
+}
+
+.tarjeta-principal {
+    flex: 1;
+}
+
+.interior-tarjeta-principal {
+    background: var(--gris-oscuro);
+    color: var(--blanco);
+    padding: 2rem;
+    border-radius: 24px;
+    box-shadow: var(--sombra);
+    width: 350px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.interior-tarjeta-principal:hover {
+    transform: translateY(4px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+}
+
+.interior-tarjeta-principal ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.interior-tarjeta-principal h3 {
+    margin-top: 0;
+}
+
+.seccion {
+    padding: 4rem 0;
+}
+
+.seccion h2 {
+    margin: 0 0 1rem;
+    font-size: 2.2rem;
+}
+
+.titulo-seccion p,
+.tarjeta-servicio p,
+.tarjeta p,
+.tarjeta-tarifa ul,
+.informacion-contacto p {
+    color: var(--gris-medio);
+}
+
+.columna {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.tarjeta,
+.tarjeta-servicio,
+.tarjeta-tarifa {
+    background: var(--blanco);
+    padding: 2.8rem;
+    border-radius: 20px;
+    box-shadow: var(--sombra);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    justify-content: space-between;
+    text-align: center;
+}
+
+.tarjeta-servicio:hover{
+    transform: translateY(4px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+}
+
+.tarjeta-servicio h3,
+.tarjeta h3,
+.tarjeta-tarifa h3 {
+    margin-top: 0;
+}
+
+.boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.95rem 1.8rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.boton:hover {
+    transform: translateY(-2px);
+}
+
+.boton-principal {
+    background: var(--naranja);
+    color: var(--blanco);
+}
+
+.boton-secundario {
+    background: transparent;
+    color: var(--gris-oscuro);
+    border: 2px solid var(--gris-oscuro);
+}
+
+.tarjeta-tarifa.recomendado {
+    border-color: var(--naranja);
+}
+
+.tarjeta-tarifa .precio {
+    font-size: 2rem;
+    color: var(--naranja);
+    margin: 1rem 0;
+}
+
+.tarjeta-tarifa ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tarjeta-tarifa li {
+    padding: 0.45rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.rejilla-contacto {
+    align-items: flex-start;
+    gap: 3rem;
+}
+
+.informacion-contacto ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+}
+
+.informacion-contacto li {
+    margin-bottom: 0.75rem;
+}
+
+.formulario-contacto {
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+    max-width: 520px;
+}
+
+.formulario-contacto label {
+    font-weight: 700;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #d6d6d6;
+    border-radius: 14px;
+    font: inherit;
+}
+
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus {
+    outline: none;
+    border-color: var(--naranja);
+    box-shadow: 0 0 0 4px rgba(241, 90, 41, 0.12);
+}
+
+.pie-sitio {
+    background: #1f1f1f;
+    color: var(--gris-claro);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.interior-pie {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .tres-columnas,
+    .interior-cabecera,
+    .rejilla-principal,
+    .rejilla-contacto,
+    .interior-pie {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 650px) {
+    .texto-principal h2 {
+        font-size: 2.5rem;
+    }
+
+    .principal {
+        padding-top: 3rem;
+    }
+
+    .interior-pie {
+        text-align: center;
+    }
+}
