@@ -33,7 +33,9 @@
             font-weight: bold;
         }
 
-        input, select, textarea {
+        input,
+        select,
+        textarea {
             width: 100%;
             padding: 10px;
             margin-top: 5px;
@@ -42,16 +44,28 @@
             box-sizing: border-box;
         }
 
+        /* Objetivos y días en horizontal */
         .radio-group,
         .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px 25px;
             margin-top: 10px;
         }
 
         .radio-group label,
         .checkbox-group label {
+            display: flex;
+            align-items: center;
             font-weight: normal;
-            display: inline-block;
-            margin-right: 20px;
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .radio-group input,
+        .checkbox-group input {
+            width: auto;
+            margin-right: 6px;
         }
 
         button {
@@ -69,6 +83,11 @@
         button:hover {
             background-color: #218838;
         }
+
+        #barraExperiencia {
+            display: none;
+            margin-top: 20px;
+        }
     </style>
 </head>
 
@@ -84,50 +103,105 @@
         <input type="text" id="nombre" name="nombre" required>
 
         <label for="edad">Edad</label>
-        <input type="number" id="edad" name="edad" min="14" max="100">
+        <input type="number" id="edad" name="edad" min="14" max="100" required>
 
         <label for="correo">Correo electrónico</label>
-        <input type="email" id="correo" name="correo">
+        <input type="email" id="correo" name="correo" required>
 
         <label for="telefono">Teléfono</label>
-        <input type="tel" id="telefono" name="telefono">
+        <input type="tel" id="telefono" name="telefono" required>
 
+        <!-- Objetivos -->
         <label>¿Cuál es tu objetivo?</label>
 
         <div class="radio-group">
-            <label><input type="radio" name="objetivo" value="Perder peso"> Perder peso</label>
-            <label><input type="radio" name="objetivo" value="Ganar músculo"> Ganar músculo</label>
-            <label><input type="radio" name="objetivo" value="Mantenerse"> Mantenerse en forma</label>
+            <label><input type="radio" name="objetivo" value="Perder peso">Perder peso</label>
+            <label><input type="radio" name="objetivo" value="Ganar músculo">Ganar músculo</label>
+            <label><input type="radio" name="objetivo" value="Mantenerse en forma">Mantenerse en forma</label>
+            <label><input type="radio" name="objetivo" value="Aumentar fuerza">Aumentar fuerza</label>
+            <label><input type="radio" name="objetivo" value="Mejorar resistencia">Mejorar resistencia</label>
+            <label><input type="radio" name="objetivo" value="Preparar competición">Preparar competición</label>
+            <label><input type="radio" name="objetivo" value="Rehabilitación">Rehabilitación</label>
+            <label><input type="radio" name="objetivo" value="Mejorar salud">Mejorar salud</label>
         </div>
 
-        <label for="experiencia">Nivel de experiencia</label>
+        <!-- Nivel -->
+        <label for="nivel">Nivel de experiencia</label>
 
-        <select id="experiencia" name="experiencia">
-            <option>Principiante</option>
-            <option>Intermedio</option>
-            <option>Avanzado</option>
+        <select id="nivel" name="nivel" onchange="mostrarBarra()">
+            <option value="">-- Selecciona un nivel --</option>
+            <option value="Principiante">Principiante</option>
+            <option value="Intermedio">Intermedio</option>
+            <option value="Avanzado">Avanzado</option>
         </select>
 
-        <label>¿Cuántos días puedes entrenar?</label>
+        <!-- Barra -->
+        <div id="barraExperiencia">
 
-        <div class="checkbox-group">
-            <label><input type="checkbox"> Lunes</label>
-            <label><input type="checkbox"> Martes</label>
-            <label><input type="checkbox"> Miércoles</label>
-            <label><input type="checkbox"> Jueves</label>
-            <label><input type="checkbox"> Viernes</label>
-            <label><input type="checkbox"> Sábado</label>
+            <label for="experiencia">
+                Valora tu experiencia:
+                <span id="valorExperiencia">5</span>/10
+            </label>
+
+            <input
+                type="range"
+                id="experiencia"
+                name="experiencia"
+                min="0"
+                max="10"
+                value="5"
+                oninput="document.getElementById('valorExperiencia').textContent=this.value">
+
         </div>
 
+        <!-- Días -->
+        <label>¿Qué días puedes entrenar?</label>
+
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="dias" value="Lunes">Lunes</label>
+            <label><input type="checkbox" name="dias" value="Martes">Martes</label>
+            <label><input type="checkbox" name="dias" value="Miércoles">Miércoles</label>
+            <label><input type="checkbox" name="dias" value="Jueves">Jueves</label>
+            <label><input type="checkbox" name="dias" value="Viernes">Viernes</label>
+            <label><input type="checkbox" name="dias" value="Sábado">Sábado</label>
+        </div>
+
+        <!-- Salud -->
         <label for="salud">¿Tienes alguna lesión o enfermedad?</label>
 
-        <textarea id="salud" rows="4" placeholder="Describe cualquier lesión o condición médica..."></textarea>
+        <textarea
+            id="salud"
+            name="salud"
+            rows="4"
+            placeholder="Describe cualquier lesión o condición médica..."></textarea>
+
+        <!-- Comentarios -->
+        <label for="comentarios">Comentarios o información adicional</label>
+
+        <textarea
+            id="comentarios"
+            name="comentarios"
+            rows="4"
+            placeholder="Escribe aquí cualquier información extra que quieras compartir (objetivos, horarios, dudas, etc.)"></textarea>
 
         <button type="submit">Enviar cuestionario</button>
 
     </form>
 
 </div>
+
+<script>
+    function mostrarBarra() {
+        const nivel = document.getElementById("nivel").value;
+        const barra = document.getElementById("barraExperiencia");
+
+        if (nivel === "") {
+            barra.style.display = "none";
+        } else {
+            barra.style.display = "block";
+        }
+    }
+</script>
 
 </body>
 </html>
