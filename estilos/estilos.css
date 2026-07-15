@@ -20,6 +20,15 @@ img {
     display: block;
 }
 
+.user-img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: block;
+}
+
 .contenedor {
     width: min(1120px, calc(100% - 2rem));
     margin: 0 auto;
@@ -198,18 +207,28 @@ nav a {
     gap: 1.5rem;
 }
 
+.rejilla.tarifas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
 .tarjeta,
 .tarjeta-servicio,
 .tarjeta-tarifa {
     background: var(--blanco);
-    padding: 2.8rem;
-    border-radius: 20px;
-    box-shadow: var(--sombra);
+    padding: 1.2rem;
+    border-radius: 18px;
     border: 1px solid rgba(0, 0, 0, 0.05);
     justify-content: space-between;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: var(--sombra);
+    max-width: 100%;
 }
-
 .tarjeta-servicio:hover{
     transform: translateY(4px);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -366,7 +385,8 @@ nav a {
     .interior-cabecera,
     .rejilla-principal,
     .rejilla-contacto,
-    .interior-pie {
+    .interior-pie,
+    .rejilla.tarifas {
         grid-template-columns: 1fr;
         flex-direction: column;
         align-items: stretch;
@@ -390,3 +410,4 @@ nav a {
         text-align: center;
     }
 }
+
