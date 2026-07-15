@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Gimnasio</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .contenedor {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            margin-top: 10px;
+        }
+
+        .radio-group label,
+        .checkbox-group label {
+            font-weight: normal;
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <h1>Cuestionario de Inscripción</h1>
+
+    <form>
+
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="edad">Edad</label>
+        <input type="number" id="edad" name="edad" min="14" max="100">
+
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" name="correo">
+
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" name="telefono">
+
+        <label>¿Cuál es tu objetivo?</label>
+
+        <div class="radio-group">
+            <label><input type="radio" name="objetivo" value="Perder peso"> Perder peso</label>
+            <label><input type="radio" name="objetivo" value="Ganar músculo"> Ganar músculo</label>
+            <label><input type="radio" name="objetivo" value="Mantenerse"> Mantenerse en forma</label>
+        </div>
+
+        <label for="experiencia">Nivel de experiencia</label>
+
+        <select id="experiencia" name="experiencia">
+            <option>Principiante</option>
+            <option>Intermedio</option>
+            <option>Avanzado</option>
+        </select>
+
+        <label>¿Cuántos días puedes entrenar?</label>
+
+        <div class="checkbox-group">
+            <label><input type="checkbox"> Lunes</label>
+            <label><input type="checkbox"> Martes</label>
+            <label><input type="checkbox"> Miércoles</label>
+            <label><input type="checkbox"> Jueves</label>
+            <label><input type="checkbox"> Viernes</label>
+            <label><input type="checkbox"> Sábado</label>
+        </div>
+
+        <label for="salud">¿Tienes alguna lesión o enfermedad?</label>
+
+        <textarea id="salud" rows="4" placeholder="Describe cualquier lesión o condición médica..."></textarea>
+
+        <button type="submit">Enviar cuestionario</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
