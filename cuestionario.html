@@ -14,7 +14,7 @@
         }
 
         .contenedor {
-            max-width: 700px;
+            max-width: 900px;
             margin: auto;
             background: white;
             padding: 25px;
@@ -44,7 +44,7 @@
             box-sizing: border-box;
         }
 
-        /* Objetivos y días en horizontal */
+        /* Grupos en horizontal */
         .radio-group,
         .checkbox-group {
             display: flex;
@@ -68,9 +68,14 @@
             margin-right: 6px;
         }
 
+        #barraExperiencia {
+            display: none;
+            margin-top: 20px;
+        }
+
         button {
             width: 100%;
-            margin-top: 20px;
+            margin-top: 25px;
             padding: 12px;
             background-color: #28a745;
             color: white;
@@ -84,10 +89,6 @@
             background-color: #218838;
         }
 
-        #barraExperiencia {
-            display: none;
-            margin-top: 20px;
-        }
     </style>
 </head>
 
@@ -111,7 +112,6 @@
         <label for="telefono">Teléfono</label>
         <input type="tel" id="telefono" name="telefono" required>
 
-        <!-- Objetivos -->
         <label>¿Cuál es tu objetivo?</label>
 
         <div class="radio-group">
@@ -125,7 +125,6 @@
             <label><input type="radio" name="objetivo" value="Mejorar salud">Mejorar salud</label>
         </div>
 
-        <!-- Nivel -->
         <label for="nivel">Nivel de experiencia</label>
 
         <select id="nivel" name="nivel" onchange="mostrarBarra()">
@@ -135,7 +134,6 @@
             <option value="Avanzado">Avanzado</option>
         </select>
 
-        <!-- Barra -->
         <div id="barraExperiencia">
 
             <label for="experiencia">
@@ -154,7 +152,6 @@
 
         </div>
 
-        <!-- Días -->
         <label>¿Qué días puedes entrenar?</label>
 
         <div class="checkbox-group">
@@ -166,7 +163,13 @@
             <label><input type="checkbox" name="dias" value="Sábado">Sábado</label>
         </div>
 
-        <!-- Salud -->
+        <label>¿En qué horario prefieres entrenar?</label>
+
+        <div class="radio-group">
+            <label><input type="radio" name="horario" value="Mañana">Mañana</label>
+            <label><input type="radio" name="horario" value="Tarde">Tarde</label>
+        </div>
+
         <label for="salud">¿Tienes alguna lesión o enfermedad?</label>
 
         <textarea
@@ -175,7 +178,6 @@
             rows="4"
             placeholder="Describe cualquier lesión o condición médica..."></textarea>
 
-        <!-- Comentarios -->
         <label for="comentarios">Comentarios o información adicional</label>
 
         <textarea
@@ -192,6 +194,7 @@
 
 <script>
     function mostrarBarra() {
+
         const nivel = document.getElementById("nivel").value;
         const barra = document.getElementById("barraExperiencia");
 
