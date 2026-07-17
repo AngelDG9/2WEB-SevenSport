@@ -726,3 +726,130 @@ button[type="submit"]:hover {
         text-align: center;
     }
 }
+
+/* Carrusel de reseñas */
+
+.carrusel {
+    position: relative;
+    overflow: hidden;
+    padding: 0 2.5rem;
+}
+
+.carrusel-pista {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.5s ease;
+}
+
+.tarjeta-resena {
+    min-width: calc((100% - 3rem) / 3);
+    background: var(--blanco);
+    padding: 1.5rem;
+    border-radius: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: var(--sombra);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-resena:hover {
+    transform: translateY(-4px);
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+}
+
+.resena-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.resena-info h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--gris-oscuro);
+}
+
+.resena-estrellas {
+    color: var(--naranja);
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+}
+
+.resena-texto {
+    color: var(--gris-medio);
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    flex: 1;
+}
+
+.resena-google {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--gris-medio);
+    font-weight: 600;
+    opacity: 0.6;
+}
+
+.carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--blanco);
+    border: 2px solid var(--naranja);
+    color: var(--naranja);
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.carrusel-btn:hover {
+    background: var(--naranja);
+    color: var(--blanco);
+}
+
+.carrusel-btn-izq {
+    left: 0;
+}
+
+.carrusel-btn-der {
+    right: 0;
+}
+
+@media (max-width: 900px) {
+    .tarjeta-resena {
+        min-width: calc((100% - 1.5rem) / 2);
+    }
+}
+
+@media (max-width: 650px) {
+    .carrusel {
+        padding: 0 2rem;
+    }
+
+    .tarjeta-resena {
+        min-width: 100%;
+    }
+
+    .carrusel-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+}
