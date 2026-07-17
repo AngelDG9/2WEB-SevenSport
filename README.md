@@ -13,10 +13,12 @@ La sección de reseñas muestra 10 opiniones reales de clientes de Seven Sport e
 
 ### Funcionamiento
 
-- Se muestran **3 reseñas** en desktop, **2 en tablet**, **1 en móvil**
+- Se muestran **3 reseñas** en desktop, **2 en tablet**, **1 en móvil** (todas con el mismo ancho fijo)
 - Las reseñas avanzan automáticamente cada 5 segundos con loop infinito
 - Flechas ❮/❯ a los lados permiten navegación manual (resetean el timer)
 - Hover en las tarjetas aplica el mismo efecto `translateY(-4px)` que el resto de la web
+- Las estrellas son grandes (`1.4rem`) y el nombre aparece junto al avatar de perfil
+- El subtítulo "Opiniones reales de nuestros usuarios en Google" está debajo del carrusel, a la izquierda, en tamaño pequeño y discreto
 
 ### Reseñas incluidas
 
@@ -32,6 +34,14 @@ La sección de reseñas muestra 10 opiniones reales de clientes de Seven Sport e
 | Fermín Aranda | ⭐⭐⭐⭐⭐ |
 | Natalia Navas | ⭐⭐⭐⭐ |
 | Cristina Gago | ⭐⭐⭐⭐⭐ |
+
+### Diseño de las tarjetas
+
+- **Avatar + nombre**: juntos en la cabecera, alineados a la izquierda
+- **Estrellas**: grandes (`1.4rem`), color naranja (`--naranja`)
+- **Texto**: cursiva, color gris medio, alineado a la izquierda
+- **Altura uniforme**: todas las tarjetas se estiran a la misma altura via `align-items: stretch` en el contenedor
+- **Ancho fijo**: cada tarjeta ocupa exactamente 1/3 del espacio disponible (desktop)
 
 ### Para modificar reseñas
 
