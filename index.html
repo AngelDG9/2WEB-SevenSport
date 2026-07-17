@@ -341,18 +341,19 @@
 
     <script>
         (function () {
-            const ventana = document.querySelector('.carrusel-ventana');
-            const pista = document.querySelector('.carrusel-pista');
-            const tarjetas = document.querySelectorAll('.tarjeta-resena');
-            const btnIzq = document.querySelector('.carrusel-btn-izq');
-            const btnDer = document.querySelector('.carrusel-btn-der');
+            const ventana  = document.querySelector('.carrusel-ventana');
+            const pista    = document.querySelector('.carrusel-pista');
+            const tarjetas = Array.from(document.querySelectorAll('.tarjeta-resena'));
+            const btnIzq   = document.querySelector('.carrusel-btn-izq');
+            const btnDer   = document.querySelector('.carrusel-btn-der');
+
+            const GAP = 24; // debe coincidir con gap: 1.5rem (24px base)
             let currentIndex = 0;
-            let autoScroll;
+            let autoScrollTimer;
 
             function getVisibles() {
-                const w = window.innerWidth;
-                if (w <= 650) return 1;
-                if (w <= 900) return 2;
+                if (window.innerWidth <= 650) return 1;
+                if (window.innerWidth <= 900) return 2;
                 return 3;
             }
 
@@ -360,53 +361,70 @@
                 return Math.max(0, tarjetas.length - getVisibles());
             }
 
-            function setCardWidths() {
-                const gap = 24;
+            function cardWidth() {
                 const vis = getVisibles();
-                const cardW = (ventana.offsetWidth - gap * (vis - 1)) / vis;
-                tarjetas.forEach(function (t) { t.style.width = cardW + 'px'; });
+                return (ventana.offsetWidth - GAP * (vis - 1)) / vis;
             }
 
-            function slide() {
-                const gap = 24;
-                const vis = getVisibles();
-                const cardW = (ventana.offsetWidth - gap * (vis - 1)) / vis;
-                const step = cardW + gap;
+            function applyLayout() {
+                // Asigna el ancho exacto en px a cada tarjeta
+                const w = cardWidth();
+                tarjetas.forEach(function (t) {
+                    t.style.width = w + 'px';
+                    t.style.flexShrink = '0';
+                });
+                // Reposiciona sin animacion si es necesario
+                pista.style.transition = 'none';
+                pista.style.transform = 'translateX(0)';
+                currentIndex = 0;
+                // Restaurar transicion en siguiente frame
+                requestAnimationFrame(function () {
+                    pista.style.transition = 'transform 0.45s cubic-bezier(0.4, 0, 0.2, 1)';
+                });
+            }
+
+            function goTo(index) {
+                currentIndex = Math.max(0, Math.min(index, maxIndex()));
+                var step = cardWidth() + GAP;
                 pista.style.transform = 'translateX(-' + (currentIndex * step) + 'px)';
             }
 
             function startAutoScroll() {
                 stopAutoScroll();
-                autoScroll = setInterval(function () {
-                    currentIndex = currentIndex >= maxIndex() ? 0 : currentIndex + 1;
-                    slide();
+                autoScrollTimer = setInterval(function () {
+                    goTo(currentIndex >= maxIndex() ? 0 : currentIndex + 1);
                 }, 8000);
             }
 
             function stopAutoScroll() {
-                clearInterval(autoScroll);
+                clearInterval(autoScrollTimer);
             }
 
             btnIzq.addEventListener('click', function () {
-                currentIndex = currentIndex <= 0 ? maxIndex() : currentIndex - 1;
-                slide();
+                goTo(currentIndex <= 0 ? maxIndex() : currentIndex - 1);
                 startAutoScroll();
             });
 
             btnDer.addEventListener('click', function () {
-                currentIndex = currentIndex >= maxIndex() ? 0 : currentIndex + 1;
-                slide();
+                goTo(currentIndex >= maxIndex() ? 0 : currentIndex + 1);
                 startAutoScroll();
             });
 
+            var resizeTimer;
             window.addEventListener('resize', function () {
-                setCardWidths();
-                if (currentIndex > maxIndex()) currentIndex = maxIndex();
-                slide();
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(applyLayout, 100);
             });
 
-            setCardWidths();
-            startAutoScroll();
+            // Esperamos al primer paint para tener offsetWidth real
+            requestAnimationFrame(function () {
+                applyLayout();
+                // Despues del reset de applyLayout, iniciamos en 0 y arrancamos
+                requestAnimationFrame(function () {
+                    startAutoScroll();
+                });
+            });
+
         })();
     </script>
 </body>
