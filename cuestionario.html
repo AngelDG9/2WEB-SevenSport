@@ -3,97 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuestionario de Gimnasio</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 20px;
-        }
-
-        .contenedor {
-            max-width: 900px;
-            margin: auto;
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,.2);
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        label {
-            display: block;
-            margin-top: 15px;
-            font-weight: bold;
-        }
-
-        input,
-        select,
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        /* Grupos en horizontal */
-        .radio-group,
-        .checkbox-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px 25px;
-            margin-top: 10px;
-        }
-
-        .radio-group label,
-        .checkbox-group label {
-            display: flex;
-            align-items: center;
-            font-weight: normal;
-            margin: 0;
-            white-space: nowrap;
-        }
-
-        .radio-group input,
-        .checkbox-group input {
-            width: auto;
-            margin-right: 6px;
-        }
-
-        #barraExperiencia {
-            display: none;
-            margin-top: 20px;
-        }
-
-        button {
-            width: 100%;
-            margin-top: 25px;
-            padding: 12px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #218838;
-        }
-
-    </style>
+    <link rel="stylesheet" href="estilos/estilos.css">
+    <link rel="icon" href="imagenes/logo-sv.jpg" type="image/x-icon">
+    <title>Cuestionario de Inscripción</title>
 </head>
 
 <body>
-
+    <header class="cabecera-sitio">
+        <div class="contenedor interior-cabecera">
+            <div class="marca">
+                <a class="logo-enlace" href="index.html">
+                    <img src="imagenes/logo-sv.jpg" alt="Logo Seven Sport">
+                </a>
+                <div class="marca-texto">
+                    <h1><a class="marca-enlace" href="index.html">Seven Sport</a></h1>
+                    <p>Potencia tu energía. Vive el entrenamiento.</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="index.html#servicios">Servicios</a></li>
+                    <li><a href="index.html#tarifas">Tarifas</a></li>
+                    <li><a href="cuestionario.html">¡Únete ya!</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 <div class="contenedor">
 
     <h1>Cuestionario de Inscripción</h1>
@@ -191,6 +127,19 @@
     </form>
 
 </div>
+<h3 class="titulo-seccion">Síguenos en redes sociales</h3>
+    <div class="redes-sociales">
+            <a href="https://facebook.com/sevensport"><img src="imagenes/fb.png" alt="Facebook">Facebook</a>
+            <a href="https://twitter.com/sevensport"><img src="imagenes/x.png" alt="Twitter">Twitter</a>
+            <a href="https://instagram.com/sevensport"><img src="imagenes/ig.png" alt="Instagram">Instagram</a>
+        </div>
+    <footer class="pie-sitio">
+        <div class="contenedor interior-pie">
+            <p>Seven Sport © 2026 · 2WEB Project</p>
+        </div>
+        
+    </footer>
+        
 
 <script>
     function mostrarBarra() {

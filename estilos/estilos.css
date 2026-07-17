@@ -199,6 +199,197 @@ nav a {
     max-width: 320px;
 }
 
+body h1,
+body h3 {
+    font-family: 'Inter', sans-serif;
+}
+
+.contenedor > h1 {
+    margin: 3rem auto 1.5rem;
+    text-align: center;
+    font-size: clamp(2rem, 3vw, 2.6rem);
+    color: var(--gris-oscuro);
+}
+
+form {
+    background: var(--blanco);
+    border-radius: 24px;
+    box-shadow: var(--sombra);
+    padding: 4.5rem;
+    margin-bottom: 3rem;
+
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: var(--gris-oscuro);
+    font-weight: 600;
+    margin-top: 1.8rem;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="email"],
+form input[type="tel"],
+form textarea,
+form select,
+form input[type="range"] {
+    width: 100%;
+    padding: 0.95rem 1rem;
+    border: 1px solid #dcdcdc;
+    border-radius: 14px;
+    background: #fcfcfc;
+    font-size: 1rem;
+    color: var(--gris-oscuro);
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form input[type="email"]:focus,
+form input[type="tel"]:focus,
+form textarea:focus,
+form select:focus,
+form input[type="range"]:focus {
+    outline: none;
+    border-color: var(--naranja);
+    box-shadow: 0 0 0 4px rgba(241, 90, 41, 0.14);
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.radio-group,
+.checkbox-group {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    margin-bottom: 1.5rem;
+}
+
+.radio-group label,
+.checkbox-group label {
+    background: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 14px;
+    padding: 0.85rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    user-select: none;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.radio-group input,
+.checkbox-group input {
+    accent-color: var(--naranja);
+}
+
+.radio-group label:hover,
+.checkbox-group label:hover {
+    border-color: var(--naranja);
+    background: #fff6f0;
+}
+
+#barraExperiencia {
+    display: none;
+    margin-bottom: 1.5rem;
+}
+
+#barraExperiencia label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+#barraExperiencia span {
+    color: var(--naranja);
+    font-weight: 700;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #f15a29 0%, #d35400 100%);
+    color: var(--blanco);
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 24px rgba(241, 90, 41, 0.24);
+    opacity: 0.98;
+}
+
+.titulo-seccion {
+    text-align: center;
+    margin: 0 auto 1rem;
+    font-size: 1.6rem;
+    color: var(--gris-oscuro);
+}
+
+.redes-sociales {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.redes-sociales a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.25rem;
+    border-radius: 999px;
+    background: #ffffff;
+    color: var(--gris-oscuro);
+    text-decoration: none;
+    border: 1px solid #e6e6e6;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.redes-sociales a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.pie-sitio {
+    background: #1f1f1f;
+    color: #dcdcdc;
+    padding: 1.25rem 0;
+    text-align: center;
+}
+
+@media (max-width: 720px) {
+    nav ul {
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .radio-group,
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+
+    form {
+        padding: 1.75rem;
+    }
+}
+
+
 .interior-tarjeta-principal ul {
     list-style: none;
     padding: 0;
@@ -462,4 +653,3 @@ nav a {
         text-align: center;
     }
 }
-
