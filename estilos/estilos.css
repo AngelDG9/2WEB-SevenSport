@@ -101,7 +101,7 @@ nav ul {
     display: flex;
     flex-wrap: wrap;
     gap: 2.5rem;
-    margin-left: 20px;
+    margin-left: 50px;
     padding: 0;
     font-size: 1.2rem;
 }
@@ -186,10 +186,11 @@ nav a {
     flex-direction:column;
     align-items: center;
     opacity: 0.9;
+    justify-content: center;
 }
 
 .interior-tarjeta-principal:hover {
-    transform: translateY(4px);
+    transform: translateY(-4px);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.12);
     cursor: pointer;
@@ -472,8 +473,15 @@ button[type="submit"]:hover {
     box-shadow: var(--sombra);
     max-width: 100%;
 }
+
+.tarjeta-tarifa:hover {
+    transform: translateY(-4px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+}
 .tarjeta-servicio:hover{
-    transform: translateY(4px);
+    transform: translateY(-4px);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.12);
     cursor: pointer;
@@ -637,6 +645,71 @@ button[type="submit"]:hover {
 
     nav ul {
         justify-content: center;
+    }
+}
+
+.faq-list,
+.politicas-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.politicas {
+    margin-bottom: 3rem;
+}
+
+.faq-item,
+.tarjeta-politica {
+    background: var(--blanco);
+    border-radius: 20px;
+    padding: 1.8rem;
+    box-shadow: var(--sombra);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.faq-item h3,
+.tarjeta-politica h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+}
+
+.faq-item:hover {
+    transform: translateY(-4px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+}
+
+.tarjeta-politica ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+}
+
+.tarjeta-politica li {
+    padding: 0.55rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.tarjeta-politica li:last-child {
+    border-bottom: none;
+}
+
+.tarjeta-politica:hover {
+    transform: translateY(-4px);
+    transition: transform 0.3s ease, box-shadow 0.2s ease;
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+}
+
+@media (min-width: 900px) {
+    .faq-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .politicas-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
