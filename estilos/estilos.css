@@ -747,12 +747,13 @@ button[type="submit"]:hover {
 
 .carrusel-pista {
     display: flex;
-    gap: 1.5rem;
+    gap: 24px;
     /* transition gestionada por JS: applyLayout la pone/quita */
 }
 
 .tarjeta-resena {
     flex-shrink: 0;
+    box-sizing: border-box;
     background: var(--blanco);
     padding: 1.5rem;
     border-radius: 16px;
