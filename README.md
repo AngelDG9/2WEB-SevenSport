@@ -15,9 +15,10 @@ La sección de reseñas muestra 10 opiniones reales de clientes de Seven Sport e
 
 - Se muestran **3 reseñas** en desktop, **2 en tablet**, **1 en móvil**
 - Las tarjetas reciben su ancho en píxeles dinámicamente via JS (`setCardWidths()`), garantizando que encajen perfectamente sin desbordarse ni cortarse
+- `box-sizing: border-box` en las tarjetas asegura que padding y border se incluyen en el ancho calculado
 - Las reseñas avanzan automáticamente cada **8 segundos** con loop infinito
 - Flechas ❮/❯ a los lados permiten navegación manual (resetean el timer)
-- Hover en las tarjetas aplica el efecto `translateY(-4px)` que el resto de la web
+- Hover en las tarjetas aplica el efecto `translateY(-4px)` del resto de la web
 - El subtítulo "Opiniones reales de nuestros usuarios en Google" está debajo del carrusel, discreto
 
 ### Estructura DOM del carrusel
@@ -36,10 +37,10 @@ Los botones viven **fuera** del contenedor con `overflow:hidden`, por lo que no 
 ### Estrellas
 
 Las estrellas usan el carácter Unicode `★` (U+2605) con dos clases CSS:
-- `.estrella.llena` → color `#f5a623` (naranja dorado)
-- `.estrella.vacia` → color `#d9d9d9` (gris claro)
+- `.estrella.llena` → color `#f5a623` (naranja dorado), tamaño `1.35rem`
+- `.estrella.vacia` → color `#d9d9d9` (gris claro), tamaño `1.35rem`
 
-Siempre se renderizan 5 estrellas, con las vacías en gris para completar la puntuación. Esto es más consistente entre navegadores y sistemas operativos que el emoji `⭐`.
+Siempre se renderizan 5 estrellas, con las vacías en gris para completar la puntuación. Esto es más consistente entre navegadores y sistemas operativos que el emoji ⭐.
 
 ### Reseñas incluidas
 
@@ -59,11 +60,20 @@ Siempre se renderizan 5 estrellas, con las vacías en gris para completar la pun
 ### Diseño de las tarjetas
 
 - **Fondo sección**: blanco (`var(--blanco)`) — eliminada la bandeja gris de fondo
-- **Avatar + nombre**: juntos en la cabecera, alineados a la izquierda
-- **Estrellas**: `1.1rem`, color naranja dorado para rellenas, gris para vacías
+- **Cabecera**: avatar pegado a la izquierda, nombre + estrellas a la derecha en fila (`display:flex`, `align-items:center`)
+- **Estrellas**: `1.35rem`, color naranja dorado para rellenas, gris para vacías
 - **Texto**: cursiva, color gris medio, alineado a la izquierda
-- **Sombra**: suave `0 4px 20px rgba(0,0,0,0.07)` — menos agresiva que antes
+- **Sombra**: suave `0 4px 20px rgba(0,0,0,0.07)`
 - **Ancho**: calculado en píxeles por JS en base al ancho real de `.carrusel-ventana`
+- **box-sizing**: `border-box` — el ancho asignado por JS incluye padding y border
+
+### Detalles técnicos del JS
+
+- `applyLayout()` se ejecuta dentro de `requestAnimationFrame` para asegurar que `ventana.offsetWidth` tenga el valor real del DOM pintado
+- `goTo(index)` calcula `step = cardWidth + GAP` y desplaza la pista con `translateX`
+- `GAP = 24` (px) coincide con `gap: 24px` del CSS — sin dependencia de rem
+- `resize` usa `setTimeout(applyLayout, 100)` como debounce para no recalcular en cada pixel
+- La transition del `transform` se gestiona por JS: se desactiva para resets instantáneos y se restaura en el siguiente `requestAnimationFrame`
 
 ### Para modificar reseñas
 
