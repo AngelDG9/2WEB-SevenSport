@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos/estilos.css">
     <link rel="icon" href="imagenes/7.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <title>Seven Sport</title>
 </head>
 <body>
@@ -142,6 +143,8 @@
                     <li><strong>Teléfono:</strong> 123-456-789</li>
                     <li><strong>Email:</strong> info@sevensport.com</li>
                 </ul>
+                <h2>Encuentra nuestro Gimnasio</h2>
+                <div id="map"></div>
             </div>
             <form class="formulario-contacto">
                 <h1>¡Danos tu opinión!</h1>
@@ -229,6 +232,20 @@
         </div>
         
     </footer>
-        
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+    <script>
+
+        const map = L.map('map').setView([36.689681, -6.107342], 16);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        L.marker([36.689681, -6.107342]).addTo(map)
+        .bindPopup('<b>¡Nuestro Gimnasio!</b><br>Ven a entrenar con nosotros.')
+        .openPopup();
+    </script>
 </body>
 </html>

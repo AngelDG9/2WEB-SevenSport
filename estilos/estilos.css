@@ -314,7 +314,11 @@ form textarea {
     color: var(--naranja);
     font-weight: 700;
 }
-
+#map {
+      height: 450px;
+      width: 100%;
+      border-radius: 8px;
+    }
 button[type="submit"] {
     width: 100%;
     padding: 1rem 1.25rem;
