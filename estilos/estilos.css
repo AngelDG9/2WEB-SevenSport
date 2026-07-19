@@ -40,7 +40,7 @@ img {
     padding: 1.25rem 0;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 9999;
 }
 
 .interior-cabecera,
@@ -64,8 +64,9 @@ img {
 
 .logo-enlace {
     display: inline-flex;
-    align-items: center;
     text-decoration: none;
+    align-items: center;
+    
 }
 
 .logo-enlace img {
@@ -93,15 +94,16 @@ img {
 .marca-texto p {
     color: var(--gris-claro);
     margin: 0;
-
+    font-size: 0.9rem;
+    font-weight: bold;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 2.5rem;
-    margin-left: 50px;
+    gap: 1.8rem;
+    margin-left: 20px;
     padding: 0;
     font-size: 1.2rem;
 }
@@ -344,7 +346,63 @@ button[type="submit"]:hover {
     font-size: 1.6rem;
     color: var(--gris-oscuro);
 }
+.tienda{
+    background:#f7f7f7;
+}
 
+.tienda .columna {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    column-gap: 2rem;
+    row-gap: 2.5rem;
+    align-items: start;
+}
+
+.tarjeta-producto{
+    text-align:center;
+    transition:0.3s;
+    margin:0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tarjeta-producto:hover{
+    transform:translateY(-4px);
+}
+
+.tarjeta-producto img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.tarjeta-producto .precio{
+    font-size:1.4rem;
+    font-weight:bold;
+    color:#e63946;
+    margin:15px 0;
+}
+
+.tarjeta-producto button{
+    width:100%;
+    padding: 1rem 1.25rem;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #f15a29 0%, #d35400 100%);
+    color: var(--blanco);
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.tarjeta-producto button:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 14px 24px rgba(241, 90, 41, 0.24);
+    opacity: 0.98;
+}
 .redes-sociales {
     display: flex;
     flex-wrap: wrap;
@@ -441,8 +499,9 @@ button[type="submit"]:hover {
 
 .columna {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
+    align-items: start;
 }
 
 .rejilla.tarifas {
@@ -513,6 +572,7 @@ button[type="submit"]:hover {
     background: transparent;
     color: var(--gris-oscuro);
     border: 2px solid var(--gris-oscuro);
+    margin-top: 1rem;
 }
 
 .tarjeta-tarifa.recomendado {
@@ -553,7 +613,7 @@ button[type="submit"]:hover {
 
 .formulario-contacto {
     display: grid;
-    gap: 1rem;
+    gap: 0.5rem;
     width: 100%;
     max-width: 520px;
 }
@@ -565,7 +625,7 @@ button[type="submit"]:hover {
 .formulario-contacto input,
 .formulario-contacto textarea {
     width: 100%;
-    padding: 1rem;
+    padding: 0.5rem;
     border: 1px solid #d6d6d6;
     border-radius: 14px;
     font: inherit;
