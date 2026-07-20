@@ -865,3 +865,144 @@ button[type="submit"]:hover {
         text-align: center;
     }
 }
+
+/* ===== Carrusel de reseñas ===== */
+
+.resenas {
+    background: var(--blanco);
+}
+
+.carrusel {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+.carrusel-ventana {
+    flex: 1;
+    overflow: hidden;
+}
+
+.carrusel-pista {
+    display: flex;
+    gap: 24px;
+    /* transition gestionada por JS: applyLayout la pone/quita */
+}
+
+.tarjeta-resena {
+    flex-shrink: 0;
+    box-sizing: border-box;
+    background: var(--blanco);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta-resena:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.13);
+    cursor: pointer;
+}
+
+.resena-cabecera {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.9rem;
+}
+
+.resena-cabecera .user-img {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    margin: 0;
+}
+
+.resena-info h3 {
+    margin: 0 0 0.25rem;
+    font-size: 0.95rem;
+    color: var(--gris-oscuro);
+    line-height: 1.3;
+}
+
+.resena-estrellas {
+    display: flex;
+    gap: 2px;
+    line-height: 1;
+}
+
+.estrella {
+    font-size: 1.35rem;
+    line-height: 1;
+}
+
+.estrella.llena {
+    color: #f5a623;
+}
+
+.estrella.vacia {
+    color: #d9d9d9;
+}
+
+.resena-texto {
+    color: var(--gris-medio);
+    font-style: italic;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    flex: 1;
+    margin-top: 0.25rem;
+}
+
+.resena-fuente {
+    margin-top: 1.25rem;
+    font-size: 0.78rem;
+    color: var(--gris-medio);
+    opacity: 0.65;
+}
+
+.carrusel-btn {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--blanco);
+    border: 2px solid var(--naranja);
+    color: var(--naranja);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    align-self: center;
+}
+
+.carrusel-btn:hover {
+    background: var(--naranja);
+    color: var(--blanco);
+    transform: scale(1.08);
+}
+
+@media (max-width: 900px) {
+    /* card widths at breakpoints are handled by JS */
+}
+
+@media (max-width: 650px) {
+    .carrusel {
+        gap: 0.5rem;
+    }
+
+    .carrusel-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 0.85rem;
+    }
+}
