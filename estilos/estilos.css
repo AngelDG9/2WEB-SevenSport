@@ -1,4 +1,4 @@
-:root {
+﻿:root {
     --naranja: #f15a29;
     --gris-oscuro: #2b2b2b;
     --gris-claro: #f4f4f4;
@@ -7,12 +7,24 @@
     --sombra: 0 16px 40px rgba(0, 0, 0, 0.12);
 }
 
+html {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
 body {
     margin: 0;
+    min-width: 320px;
     font-family: 'Inter', sans-serif;
     background: var(--gris-claro);
     color: var(--gris-oscuro);
     line-height: 1.6;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 img {
@@ -453,6 +465,7 @@ button[type="submit"]:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 1rem;
     margin-bottom: 3rem;
 }
@@ -460,11 +473,15 @@ button[type="submit"]:hover {
 .redes-sociales a {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.6rem;
     padding: 0.85rem 1.25rem;
     border-radius: 999px;
     background: #ffffff;
     color: var(--gris-oscuro);
+    text-align: center;
+    width: 100%;
+    max-width: 220px;
     text-decoration: none;
     border: 1px solid #e6e6e6;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -743,8 +760,229 @@ button[type="submit"]:hover {
         align-items: stretch;
     }
 
+    .interior-cabecera {
+        flex-wrap: wrap;
+    }
+
+    .marca {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.75rem;
+        width: auto;
+        min-width: 0;
+        flex: 0 1 auto;
+    }
+
+    .marca-texto {
+        text-align: left;
+    }
+
     nav ul {
         justify-content: center;
+        gap: 1rem;
+        margin-left: 0;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .contenedor {
+        width: min(1040px, calc(100% - 1.5rem));
+    }
+
+    .boton,
+    .boton-principal,
+    .boton-secundario {
+        width: 100%;
+    }
+
+    .texto-principal,
+    .tarjeta-principal,
+    .tarjeta,
+    .tarjeta-servicio,
+    .tarjeta-tarifa,
+    .tarjeta-producto,
+    .tarjeta-politica,
+    .faq-item,
+    .form,
+    .formulario-contacto,
+    .interior-tarjeta-principal {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .seccion {
+        padding: 3rem 0;
+    }
+
+    .principal {
+        padding: 3rem 0;
+    }
+
+    .texto-principal h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+    }
+}
+
+.cabecera-sitio nav {
+    position: relative;
+    z-index: 10;
+}
+
+.cabecera-sitio nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.8rem;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.cabecera-sitio nav ul li {
+    width: auto;
+}
+
+.menu-hamburguesa {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    nav ul {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .cabecera-sitio {
+        padding: 1rem 0;
+    }
+
+    .interior-cabecera {
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        position: relative;
+    }
+
+    .menu-hamburguesa {
+        display: inline-flex;
+        position: absolute;
+        top: 10%;
+        left: 97%;
+        transform: translate(-50%, -50%);
+        border: none;
+        background: transparent;
+        width: 46px;
+        height: 46px;
+        padding: 0;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+    }
+
+    .menu-hamburguesa img.icono-hamburguesa {
+        width: 28px;
+        height: 28px;
+        display: block;
+    }
+
+    .menu-hamburguesa:hover {
+        background: rgba(255, 255, 255, 0.14);
+    }
+
+    .cabecera-sitio {
+        position: relative;
+    }
+
+    .cabecera-sitio nav {
+        display: none;
+        position: absolute;
+        left: 1rem;
+        right: 1rem;
+        top: 100%;
+        bottom: auto;
+        background: rgba(0, 0, 0, 0.95);
+        border-radius: 20px;
+        padding: 1rem 1.25rem;
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+        max-height: calc(100vh - 7rem);
+        overflow-y: auto;
+    }
+
+    .cabecera-sitio nav.activo {
+        display: block;
+    }
+
+    .cabecera-sitio nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        margin: 0;
+    }
+
+    .cabecera-sitio nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem 0;
+    }
+
+    .logo-enlace img {
+        width: 78px;
+        height: auto;
+    }
+
+    .marca-texto h1 {
+        font-size: 1.4rem;
+    }
+
+    .marca-texto p {
+        font-size: 0.82rem;
+    }
+
+    .rejilla-principal,
+    .rejilla-contacto {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .texto-principal {
+        max-width: 100%;
+    }
+
+    .tarjeta-principal {
+        width: 100%;
+    }
+
+    .interior-tarjeta-principal {
+        padding: 1.5rem;
+    }
+
+    .principal {
+        padding: 3rem 0;
+    }
+
+    .seccion {
+        padding: 3rem 0;
+    }
+
+    .img-servicio {
+        height: auto;
+    }
+
+    .redes-sociales {
+        flex-direction: column;
+        gap: 1rem;
     }
 }
 
@@ -874,24 +1112,31 @@ button[type="submit"]:hover {
 
 .carrusel {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: center;
     gap: 0.75rem;
     margin-top: 2rem;
+    width: 100%;
+    overflow: hidden;
 }
 
 .carrusel-ventana {
     flex: 1;
     overflow: hidden;
+    min-width: 0;
 }
 
 .carrusel-pista {
     display: flex;
     gap: 24px;
-    /* transition gestionada por JS: applyLayout la pone/quita */
+    padding-bottom: 0.25rem;
+    min-width: 100%;
 }
 
 .tarjeta-resena {
     flex-shrink: 0;
+    min-width: 280px;
+    width: min(100%, 320px);
     box-sizing: border-box;
     background: var(--blanco);
     padding: 1.5rem;
